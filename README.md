@@ -11,6 +11,7 @@ password: `sftp`
 
 ```dockerfile
 FROM ubuntu:20.04
+
 RUN apt-get update
 RUN apt-get install ssh -y # make sure it works for selection country code
 RUN service ssh restart
@@ -26,6 +27,7 @@ RUN echo "Match Group sftp_users" >> /etc/ssh/sshd_config
 RUN echo "ChrootDirectory /data/%u" >> /etc/ssh/sshd_config
 RUN echo "ForceCommand internal-sftp" >> /etc/ssh/sshd_config
 RUN service ssh restart
+
 CMD /bin/bash
 ```
 
@@ -47,9 +49,31 @@ Show all containers: `docker ps -a`
 
 `cd sftp-client-curl`
 
+`Dockerfile`:
+
+```dockerfile
+FROM ubuntu:20.04
+
+RUN apt-get update
+RUN apt-get install curl -y
+
+CMD /bin/bash
+```
+
 ## sftp client (libcurl)
 
 `cd sftp-client-libcurl`
+
+```dockerfile
+FROM ubuntu:20.04
+
+RUN apt-get update
+RUN apt-get install git -y
+RUN apt-get install build-essential -y
+RUN apt-get install libcurl4-openssl-dev -y
+
+CMD /bin/bash
+```
 
 ## sftp client (libcurl-cmake)
 
