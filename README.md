@@ -89,6 +89,9 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get install git -y
 RUN apt-get install build-essential -y
+RUN apt-get install autoconf -y
+RUN apt-get install libtool -y
+RUN apt-get install libssl-dev -y
 
 CMD /bin/bash
 ```
