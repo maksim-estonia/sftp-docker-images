@@ -64,6 +64,8 @@ CMD /bin/bash
 
 `cd sftp-client-libcurl`
 
+`Dockerfile`:
+
 ```dockerfile
 FROM ubuntu:20.04
 
@@ -77,3 +79,16 @@ CMD /bin/bash
 
 ## sftp client (libcurl-cmake)
 
+`cd sftp-client-libcurl-cmake`
+
+`Dockerfile`:
+
+```dockerfile
+FROM ubuntu:20.04
+
+RUN apt-get update
+RUN apt-get install git -y
+RUN apt-get install build-essential -y
+
+CMD /bin/bash
+```
